@@ -7,6 +7,7 @@ pipeline {
                 // --nostatusrc prevents your job from failing automatically if any
                 // tests fail. This is then later handled with the RF plugin with
                 // pass thresholds
+                sh script: "pip3 install robotframework --break-system-packages", returnStatus: true
                 sh script: "robot --nostatusrc my_tests.robot", returnStatus: true
             }
         }
