@@ -8,8 +8,9 @@ pipeline {
   stages {
     stage('Run Robot') {
       steps {
-        sh(script: 'pip3 install robotframework --break-system-packages', returnStatus: true)
-        sh(script: 'robot --nostatusrc my_tests.robot', returnStatus: true)
+        sh(script: '''printenv
+pwd
+robot --nostatusrc my_tests.robot''', returnStatus: true)
       }
     }
 
