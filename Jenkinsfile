@@ -11,7 +11,7 @@ pipeline {
         sh(script: '''apt-get update
 apt install python3 python3-pip -y
 pip install robotframework --break-system-packages
-robot --nostatusrc my_tests.robot''', returnStatus: true)
+robot --nostatusrc keyword_driven.robot''', returnStatus: true)
       }
     }
 
