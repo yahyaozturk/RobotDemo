@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Run Robot') {
       steps {
-        sh(script: '''pip install robotframework
+        sh(script: '''apt install python3 -y
+pip install robotframework
 robot --nostatusrc my_tests.robot''', returnStatus: true)
       }
     }
