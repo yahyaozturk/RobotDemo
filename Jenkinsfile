@@ -10,7 +10,7 @@ pipeline {
       steps {
         sh(script: '''apt-get update
 apt install python3 -y
-pip install robotframework
+pip3 install robotframework
 robot --nostatusrc my_tests.robot''', returnStatus: true)
       }
     }
