@@ -13,7 +13,7 @@ apt install python3 python3-pip -y
 pip install robotframework --break-system-packages
 robot --nostatusrc keyword_driven.robot
 rebot -x xunitOut.xml output.xml''', returnStatus: true)
-        junit 'xunitOut.xml'
+        junit '*.xml'
       }
     }
 
@@ -21,7 +21,7 @@ rebot -x xunitOut.xml output.xml''', returnStatus: true)
   post {
     always {
       robot(outputPath: '.', passThreshold: 80, unstableThreshold: 70, onlyCritical: false)
-      junit 'xunitOut.xml'
+      junit '*.xml'
     }
 
   }
