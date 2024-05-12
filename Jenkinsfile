@@ -21,6 +21,7 @@ rebot -x xunitOut.xml output.xml''', returnStatus: true)
   post {
     always {
       robot(outputPath: '.', passThreshold: 80, unstableThreshold: 70, onlyCritical: false)
+      junit 'xunitOut.xml'
     }
 
   }
