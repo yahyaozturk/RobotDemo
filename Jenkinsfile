@@ -35,10 +35,9 @@ rebot -x xunitOut.xml output.xml''', returnStatus: true)
         }
 
         withSonarQubeEnv('SONAR') {
+          addALMOctaneSonarQubeListener(sonarToken: 'squ_23dc266d33e16841584e5ba756d674b2874ca688', sonarServerUrl: 'http://host.docker.internal:9000', pushCoverage: true, pushVulnerabilities: true)
           sh "${scannerHome}/bin/sonar-scanner"
         }
-
-        addALMOctaneSonarQubeListener(sonarToken: 'squ_23dc266d33e16841584e5ba756d674b2874ca688', sonarServerUrl: 'http://host.docker.internal:9000', pushCoverage: true, pushVulnerabilities: true)
       }
     }
 
