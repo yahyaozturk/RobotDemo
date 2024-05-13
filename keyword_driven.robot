@@ -15,7 +15,7 @@ Library           CalculatorLibrary.py
 *** Test Cases ***
 Push button
     Push button    1
-    Result should be    1
+    Result should be    0
 
 Push multiple buttons
     Push button    1
@@ -27,7 +27,7 @@ Simple calculation
     Push button    +
     Push button    2
     Push button    =
-    Result should be    3
+    Result should be    4
 
 Longer calculation
     Push buttons    5 + 4 - 3 * 2 / 1 =
