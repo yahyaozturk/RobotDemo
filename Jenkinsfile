@@ -17,6 +17,17 @@ rebot -x xunitOut.xml output.xml''', returnStatus: true)
       }
     }
 
+stage('Clean Workspace') {
+      steps {
+        sh 'mvn -Dmaven.test.failure.ignore=true clean'
+      }
+    }
+    stage('Build and Package Microservice') {
+      steps {
+        sh 'mvn -Dmaven.test.failure.ignore=true build'
+      }
+    }
+
   stage('SonarQube analysis') {
       steps {
         script {
