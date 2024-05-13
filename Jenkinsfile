@@ -24,7 +24,7 @@ rebot -x xunitOut.xml output.xml''', returnStatus: true)
 
     stage('Build and Package Microservice') {
       steps {
-        sh 'mvn -Dmaven.test.failure.ignore=true build'
+        sh 'mvn -Dmaven.test.failure.ignore=true compile'
       }
     }
 
