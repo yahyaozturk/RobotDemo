@@ -23,7 +23,7 @@ rebot -x xunitOut.xml output.xml''', returnStatus: true)
           scannerHome = tool 'SONAR'
         }
 
-        withSonarQubeEnv('SONAR SERVER') {
+        withSonarQubeEnv('SONAR') {
           sh "${scannerHome}/bin/sonar-scanner"
         }
 
