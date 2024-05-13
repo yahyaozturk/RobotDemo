@@ -30,6 +30,7 @@ stage('Clean Workspace') {
 
   stage('SonarQube analysis') {
       steps {
+        addALMOctaneSonarQubeListener pushCoverage: true, pushVulnerabilities:true, sonarToken:env.SONAR_AUTH_TOKEN, sonarServerUrl:env.SONAR_HOST_URL
         script {
           scannerHome = tool 'SONAR'
         }
