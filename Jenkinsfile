@@ -17,7 +17,7 @@ rebot -x xunitOut.xml output.xml''', returnStatus: true)
       }
     }
 
-  }
+  
 
 
   stage('Git Checkout') {
@@ -35,6 +35,7 @@ rebot -x xunitOut.xml output.xml''', returnStatus: true)
           }
       }
   }
+ }
 
   post {
     always {
