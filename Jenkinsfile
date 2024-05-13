@@ -17,25 +17,18 @@ rebot -x xunitOut.xml output.xml''', returnStatus: true)
       }
     }
 
-  
-
-
-  stage('Git Checkout') {
+  stage('SonarQube analysis') {
       steps {
-          checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/yahyaozturk/example-spring-app']])
-          echo 'Git Checkout Completed'
-      }
-  }
+        script {
+          scannerHome = tool 'SONAR'
+        }
 
-  stage('SonarQube Analysis') {
-      steps {
-          withSonarQubeEnv('ServerNameSonar') {
-              sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=example-spring-app -Dsonar.projectName="example-spring-app"'
-              echo 'SonarQube Analysis Completed'
-          }
+        withSonarQubeEnv('SONAR SERVER') {
+          sh "${scannerHome}/bin/sonar-scanner"
+        }
+
       }
-  }
- }
+    }
 
   post {
     always {
